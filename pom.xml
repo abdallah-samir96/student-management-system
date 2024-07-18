@@ -14,5 +14,15 @@
 
   <build>
     <finalName>student-management-system</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <target>11</target>
+          <release>11</release>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

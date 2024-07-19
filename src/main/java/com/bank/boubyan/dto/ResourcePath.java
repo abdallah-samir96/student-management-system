@@ -5,4 +5,6 @@ public class ResourcePath {
     public static final String USER_PATH = VERSION + "/users";
     public static final String USER_LOGIN = "/login";
 
+    public static final String COURSE_PATH = VERSION + "/courses";
+
 }

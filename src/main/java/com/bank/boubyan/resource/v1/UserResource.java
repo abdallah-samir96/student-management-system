@@ -21,7 +21,6 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public UserDTO login(UserDTO userDTO) {
-        System.out.println("Hello World!!!!!!!");
         return userService.login(userDTO);
     }
 

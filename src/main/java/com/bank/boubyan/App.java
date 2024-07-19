@@ -1,8 +1,9 @@
 package com.bank.boubyan;
 
-public class App {
-    public static void main(String[] args) {
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-        System.out.println(App.class.getName());
-    }
+@ApplicationPath("/api")
+public class App extends Application {
+
 }

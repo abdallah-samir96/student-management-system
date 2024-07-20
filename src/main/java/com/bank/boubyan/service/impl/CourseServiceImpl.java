@@ -24,4 +24,8 @@ public class CourseServiceImpl implements CourseService {
         return List.of(course, course2);
     }
 
+    @Override
+    public List<CourseDTO> viewUserCourses() {
+        return null;
+    }
 }

@@ -24,4 +24,12 @@ public class CourseResource {
         return courseService.getAll();
     }
 
+
+    @Path(ResourcePath.USER_COURSES)
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<CourseDTO> viewUserCourses() {
+        return courseService.viewUserCourses();
+    }
+
 }

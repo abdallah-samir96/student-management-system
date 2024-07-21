@@ -36,4 +36,13 @@ public class UserDTO {
     public String getToken() {
         return token;
     }
+
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", token='" + token + '\'' +
+                '}';
+    }
 }

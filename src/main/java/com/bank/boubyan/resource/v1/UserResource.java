@@ -48,8 +48,8 @@ public class UserResource {
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response courseSchedule(CourseDTO courseDTO) {
-        byte[] fileStream = userService.courseSchedule(courseDTO);
+    public Response courseSchedule() {
+        byte[] fileStream = userService.courseSchedule(new CourseDTO());
         return Response.ok(fileStream, MediaType.APPLICATION_OCTET_STREAM).build();
     }
 }

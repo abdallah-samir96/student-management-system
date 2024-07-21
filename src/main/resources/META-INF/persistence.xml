@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.0">
+
+    <persistence-unit name="student-management-system" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<!--        <provider>javax.persistence.spi.PersistenceProvider</provider>-->
+        <class>com.bank.boubyan.model.Student</class>
+        <properties>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" />-->
+<!--            <property name="jakarta.persistence.sql-load-script-source" value="META-INF/initial-data.sql" />-->
+            <property name="eclipselink.logging.level.sql" value="FINE" />
+            <property name="eclipselink.logging.parameters" value="true" />
+            <property name="hibernate.show_sql" value="true" />
+
+        <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:ORCL"/>
+        <property name="javax.persistence.jdbc.user" value="samir"/>
+        <property name="javax.persistence.jdbc.password" value="12345"/>
+        <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+        </properties>
+    </persistence-unit>
+</persistence>

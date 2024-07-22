@@ -4,8 +4,8 @@ public class CourseDTO implements Cloneable{
     private Integer id;
     private String name;
     private String description;
-    private String location;
-    private Integer capacity;
+    private Integer rate;
+    private String instructorName;
 
     public Integer getId() {
         return id;
@@ -31,39 +31,19 @@ public class CourseDTO implements Cloneable{
         this.description = description;
     }
 
-    public String getLocation() {
-        return location;
+    public Integer getRate() {
+        return rate;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setRate(Integer rate) {
+        this.rate = rate;
     }
 
-    public Integer getCapacity() {
-        return capacity;
+    public String getInstructorName() {
+        return instructorName;
     }
 
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseDTO{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", location='" + location + '\'' +
-                ", capacity=" + capacity +
-                '}';
-    }
-
-    @Override
-    public CourseDTO clone() {
-        try {
-            return (CourseDTO) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
+    public void setInstructorName(String instructorName) {
+        this.instructorName = instructorName;
     }
 }

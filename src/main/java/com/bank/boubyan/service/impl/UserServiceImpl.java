@@ -4,13 +4,10 @@ import com.bank.boubyan.dto.CourseDTO;
 import com.bank.boubyan.dto.UserDTO;
 import com.bank.boubyan.security.utils.TokenUtils;
 import com.bank.boubyan.service.UserService;
-import com.ironsoftware.ironpdf.PdfDocument;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
-import java.io.IOException;
-import java.io.InputStream;
 import java.security.Principal;
 
 @ApplicationScoped
@@ -36,7 +33,7 @@ public class UserServiceImpl implements UserService {
 //        student.setPhoneNumber("010976");
 //        student.setDateOfBirth(LocalDateTime.now());
 //        student.setGender("Male");
-//        var persistenceUnit = Persistence.createEntityManagerFactory("student-management-system");
+//
 //        System.out.println("The persistence Unit name is " + persistenceUnit);
 //        var entityManager = persistenceUnit.createEntityManager();
 //        entityManager.getTransaction().begin();
@@ -62,24 +59,4 @@ public class UserServiceImpl implements UserService {
         // need to validate and check cancellation
     }
 
-    @Override
-    public byte[] courseSchedule(Integer id) {
-        PdfDocument myPdf = null;
-        try(InputStream inputStream = this.getClass()
-                .getClassLoader()
-                .getResourceAsStream("templates/schedule.html")){
-            if(inputStream != null) {
-                System.out.println("input stream has data " + inputStream);
-                myPdf = PdfDocument.renderHtmlAsPdf(new String(inputStream.readAllBytes()));
-                System.out.println("MyPDF is " + myPdf);
-            }
-            if(myPdf != null){
-                return myPdf.getBinaryData();
-            }
-            return null;
-        } catch (IOException e) {
-            System.out.println("Exception: " + e.getMessage() );
-            throw new RuntimeException(e);
-        }
-    }
 }

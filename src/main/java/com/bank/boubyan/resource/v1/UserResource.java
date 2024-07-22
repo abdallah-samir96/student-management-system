@@ -7,12 +7,25 @@ import com.bank.boubyan.service.UserService;
 
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
+import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.HttpMethodConstraint;
+import javax.servlet.annotation.ServletSecurity;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Principal;
 
 @Path(ResourcePath.USER_PATH)
+@ServletSecurity(
+        value = @HttpConstraint(rolesAllowed = {"user_hd"}),
+        httpMethodConstraints = {
+                @HttpMethodConstraint(
+                        value = "GET",
+                        rolesAllowed = {"user_hd"}),
+                @HttpMethodConstraint(
+                        value = "POST",
+                        rolesAllowed = {"user_hd"})
+        })
 public class UserResource {
     private final UserService userService;
 
@@ -56,12 +69,4 @@ public class UserResource {
         return Response.ok().build();
     }
 
-    @Path(ResourcePath.COURSE_SCHEDULE)
-    @GET
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response courseSchedule(@QueryParam("id") Integer id) {
-        byte[] fileStream = userService.courseSchedule(id);
-        return Response.ok(fileStream, MediaType.APPLICATION_OCTET_STREAM).build();
-    }
 }

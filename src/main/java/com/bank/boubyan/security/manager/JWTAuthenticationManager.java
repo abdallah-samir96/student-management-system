@@ -7,6 +7,7 @@ import com.bank.boubyan.security.utils.TokenUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.ExpiredJwtException;
 
+import javax.annotation.Priority;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.security.enterprise.AuthenticationStatus;
@@ -22,6 +23,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @ApplicationScoped
+@Priority(1)
 public class JWTAuthenticationManager implements HttpAuthenticationMechanism {
     private final static Logger logger = Logger.getLogger(JWTAuthenticationManager.class.getName());
     @Inject

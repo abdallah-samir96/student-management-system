@@ -10,8 +10,8 @@ import java.util.Set;
 public class Student implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mySeqGen")
-    @SequenceGenerator(name = "mySeqGen", sequenceName = "STUDENT_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "studentGenerator")
+    @SequenceGenerator(name = "studentGenerator", sequenceName = "STUDENT_SEQ", allocationSize = 1)
     private Integer id;
     @Column(name = "FIRST_NAME")
     private String firstName;

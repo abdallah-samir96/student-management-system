@@ -1,6 +1,8 @@
 package com.bank.boubyan.repository.impl;
 
 import com.bank.boubyan.model.Course;
+import com.bank.boubyan.model.Student;
+import com.bank.boubyan.model.StudentCourse;
 import com.bank.boubyan.repository.CourseDao;
 
 import javax.annotation.PostConstruct;
@@ -10,6 +12,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
 @RequestScoped
 public class CourseDaoImpl implements CourseDao {
@@ -31,5 +34,18 @@ public class CourseDaoImpl implements CourseDao {
             em.close();
             emf.close();
         }
+    }
+    @Override
+    public Course findById(Integer id) {
+        return em.find(Course.class, id);
+    }
+    @Override
+    public void register(Student student, Course course) {
+        var studentCourse = new StudentCourse();
+        studentCourse.setCourse(course);
+        studentCourse.setStudent(student);
+        em.getTransaction().begin();
+        em.persist(studentCourse);
+        em.getTransaction().commit();
     }
 }

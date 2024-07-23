@@ -2,13 +2,12 @@ package com.bank.boubyan.service.impl;
 
 import com.bank.boubyan.dto.CourseDTO;
 import com.bank.boubyan.dto.CourseRegistrationDTO;
-import com.bank.boubyan.dto.UserDTO;
 import com.bank.boubyan.model.Course;
+import com.bank.boubyan.repository.CourseDao;
 import com.bank.boubyan.repository.StudentDao;
 import com.bank.boubyan.security.utils.TokenUtils;
-import com.bank.boubyan.util.CourseMapper;
-import com.bank.boubyan.repository.CourseDao;
 import com.bank.boubyan.service.CourseService;
+import com.bank.boubyan.util.CourseMapper;
 import com.ironsoftware.ironpdf.PdfDocument;
 
 import javax.enterprise.context.RequestScoped;

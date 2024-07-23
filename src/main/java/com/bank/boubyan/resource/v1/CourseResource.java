@@ -1,6 +1,7 @@
 package com.bank.boubyan.resource.v1;
 
 import com.bank.boubyan.dto.CourseDTO;
+import com.bank.boubyan.dto.CourseRegistrationDTO;
 import com.bank.boubyan.dto.ResourcePath;
 import com.bank.boubyan.service.CourseService;
 
@@ -32,11 +33,11 @@ public class CourseResource {
     }
 
     @Path(ResourcePath.COURSE_SCHEDULE)
-    @GET
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response courseSchedule(@QueryParam("id") Integer id) {
-        byte[] fileStream = courseService.courseSchedule(id);
+    public Response courseSchedule(CourseRegistrationDTO dto) {
+        byte[] fileStream = courseService.courseSchedule(dto);
         return Response.ok(fileStream, MediaType.APPLICATION_OCTET_STREAM).build();
     }
 }

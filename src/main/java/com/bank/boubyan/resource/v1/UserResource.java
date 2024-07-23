@@ -45,11 +45,11 @@ public class UserResource {
     }
 
     @Path(ResourcePath.COURSE_CANCEL)
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response cancelCourse(CourseDTO courseDTO) {
-        userService.cancelCourse(courseDTO);
+    public Response cancelCourse(CourseRegistrationDTO courseRegistrationDTO) {
+        userService.cancelCourse(courseRegistrationDTO);
         return Response.ok().build();
     }
 

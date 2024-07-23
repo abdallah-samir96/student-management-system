@@ -7,6 +7,6 @@ import com.bank.boubyan.dto.UserDTO;
 public interface UserService {
     UserDTO login(UserDTO userDTO);
     void registerCourse(CourseRegistrationDTO courseRegistrationDTO);
-    void cancelCourse(CourseDTO courseDTO);
+    void cancelCourse(CourseRegistrationDTO courseRegistrationDTO);
 
 }

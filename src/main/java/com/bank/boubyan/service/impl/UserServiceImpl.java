@@ -62,9 +62,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void cancelCourse(CourseDTO courseDTO) {
-
-        // need to validate and check cancellation
+    public void cancelCourse(CourseRegistrationDTO courseRegistrationDTO) {
+        String studentEmail = tokenUtils.getCredential(courseRegistrationDTO.getToken()).getPrincipal();
+        courseDao.cancelStudentCourse(studentEmail, courseRegistrationDTO.getCourseId());
     }
 
 }

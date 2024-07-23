@@ -1,25 +1,23 @@
 package com.bank.boubyan.resource.v1;
 
-import com.bank.boubyan.dto.CourseDTO;
 import com.bank.boubyan.dto.CourseRegistrationDTO;
 import com.bank.boubyan.dto.ResourcePath;
 import com.bank.boubyan.dto.UserDTO;
-import com.bank.boubyan.security.utils.TokenUtils;
 import com.bank.boubyan.service.UserService;
 
 import javax.inject.Inject;
 import javax.security.enterprise.SecurityContext;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.security.Principal;
-import java.util.logging.Logger;
 
 @Path(ResourcePath.USER_PATH)
 public class UserResource {
     private final UserService userService;
     private  final SecurityContext securityContext;
-    private static final Logger logger = Logger.getLogger(UserResource.class.getName());
 
     @Inject
     public UserResource(UserService service, SecurityContext securityContext) {

@@ -1,7 +1,7 @@
 package com.bank.boubyan.util;
 
-import com.bank.boubyan.model.Course;
 import com.bank.boubyan.dto.CourseDTO;
+import com.bank.boubyan.model.Course;
 
 import java.util.ArrayList;
 import java.util.List;

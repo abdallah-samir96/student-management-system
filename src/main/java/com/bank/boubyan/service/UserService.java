@@ -1,6 +1,5 @@
 package com.bank.boubyan.service;
 
-import com.bank.boubyan.dto.CourseDTO;
 import com.bank.boubyan.dto.CourseRegistrationDTO;
 import com.bank.boubyan.dto.UserDTO;
 

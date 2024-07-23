@@ -4,7 +4,6 @@ import com.bank.boubyan.model.Course;
 import com.bank.boubyan.model.Student;
 import com.bank.boubyan.model.StudentCourse;
 import com.bank.boubyan.repository.CourseDao;
-import com.bank.boubyan.resource.v1.UserResource;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -23,6 +22,7 @@ public class CourseDaoImpl implements CourseDao {
     private EntityManager em;
     @PostConstruct
     public void init() {
+        logger.info("initializing the EntityManagerFactory and EntityManager");
         emf = Persistence.createEntityManagerFactory("student-management-system");
         em = emf.createEntityManager();
     }

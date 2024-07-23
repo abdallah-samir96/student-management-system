@@ -26,21 +26,16 @@ import java.util.logging.Logger;
 @Priority(1)
 public class JWTAuthenticationManager implements HttpAuthenticationMechanism {
     private final static Logger logger = Logger.getLogger(JWTAuthenticationManager.class.getName());
-    @Inject
-    private IdentityStoreHandler identityStoreHandler;
-    @Inject
-    private  TokenUtils tokenUtils;
 
-    public JWTAuthenticationManager(){
-        System.out.println("From JWT MANAGER ********************************");
+    private final IdentityStoreHandler identityStoreHandler;
+
+    private final TokenUtils tokenUtils;
+
+    @Inject
+    public JWTAuthenticationManager(IdentityStoreHandler handler, TokenUtils tokenUtils) {
+        this.identityStoreHandler = handler;
+        this.tokenUtils = tokenUtils;
     }
-
-//    @Inject
-//    public JWTAuthenticationManager(IdentityStoreHandler handler, TokenUtils tokenUtils) {
-//        System.out.println("******************* JWTAuthenticationManager ******************");
-//        this.identityStoreHandler = handler;
-//        this.tokenUtils = tokenUtils;
-//    }
     @Override
     public AuthenticationStatus validateRequest(HttpServletRequest request, HttpServletResponse response, HttpMessageContext httpMessageContext) {
         try {

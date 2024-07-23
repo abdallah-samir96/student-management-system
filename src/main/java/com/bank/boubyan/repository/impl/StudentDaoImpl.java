@@ -4,6 +4,7 @@ import com.bank.boubyan.model.Student;
 import com.bank.boubyan.repository.StudentDao;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,5 +29,10 @@ public class StudentDaoImpl implements StudentDao {
                 em.createQuery("SELECT s FROM Student s WHERE s.email = :email", Student.class);
         query.setParameter("email", email);
         return query.getSingleResult();
+    }
+    @PreDestroy
+    public void destroy(){
+        em.close();
+        emf.close();
     }
 }
